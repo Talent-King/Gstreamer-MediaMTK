@@ -1,0 +1,1 @@
+gst-launch-1.0 filesrc location=video.mp4 ! qtdemux ! decodebin ! autovideosink		
