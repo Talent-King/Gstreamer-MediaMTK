@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  mediamtx:
+    image: bluenviron/mediamtx:latest
+    container_name: mediamtx
+    restart: unless-stopped
+    environment:
+      - MTX_LOGLEVEL=debug
+    ports:
+      - "9997:9997"      # Web UI + API
+      - "8889:8889"      # WebRTC over HTTP
+      - "8890:8890/udp"  # WebRTC ICE UDP
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml
+    network_mode: host
+
